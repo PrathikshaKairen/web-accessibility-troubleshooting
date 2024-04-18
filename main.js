@@ -1,47 +1,43 @@
-// functionality for showing/hiding the comments section
+const table = document.querySelector('table');
 
-const showHideBtn = document.querySelector('.show-hide');
-const commentWrapper = document.querySelector('.comment-wrapper');
+table.onkeydown = function(event) {
+  if (event.key === 'ArrowDown') {
+    event.preventDefault();
+    const currentRow = event.target.parentNode;
+    const nextRow = currentRow.nextElementSibling;
 
-commentWrapper.style.display = 'none';
+    if (nextRow) {
+      nextRow.focus();
+    }
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    const currentRow = event.target.parentNode;
+    const prevRow = currentRow.previousElementSibling;
 
-showHideBtn.onclick = function() {
-  let showHideText = showHideBtn.textContent;
-  if(showHideText === 'Show comments') {
-    showHideBtn.textContent = 'Hide comments';
-    commentWrapper.style.display = 'block';
-  } else {
-    showHideBtn.textContent = 'Show comments';
-    commentWrapper.style.display = 'none';
+    if (prevRow) {
+      prevRow.focus();
+    }
   }
 };
 
-// functionality for adding a new comment via the comments form
+const headers = table.querySelectorAll('th');
 
-const form = document.querySelector('.comment-form');
-const nameField = document.querySelector('#name');
-const commentField = document.querySelector('#comment');
-const list = document.querySelector('.comment-container');
+headers.forEach((header) => {
+  header.onkeydown = function(event) {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      const nextCell = event.target.nextElementSibling;
 
-form.onsubmit = function(e) {
-  e.preventDefault();
-  submitComment();
-};
+      if (nextCell) {
+        nextCell.focus();
+      }
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      const prevCell = event.target.previousElementSibling;
 
-function submitComment() {
-  const listItem = document.createElement('li');
-  const namePara = document.createElement('p');
-  const commentPara = document.createElement('p');
-  const nameValue = nameField.value;
-  const commentValue = commentField.value;
-
-  namePara.textContent = nameValue;
-  commentPara.textContent = commentValue;
-
-  list.appendChild(listItem);
-  listItem.appendChild(namePara);
-  listItem.appendChild(commentPara);
-
-  nameField.value = '';
-  commentField.value = '';
-}
+      if (prevCell) {
+        prevCell.focus();
+      }
+    }
+  };
+});
