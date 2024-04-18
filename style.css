@@ -1,21 +1,13 @@
 /* General styles */
 body {
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  background-color: #f5f5f5;
   color: #333;
-  margin: 0;
-  padding: 0;
+  background-color: #f5f5f5;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
-  margin-bottom: 10px;
-}
-
-p {
-  margin-bottom: 15px;
+  line-height: 1.5;
 }
 
 a {
@@ -134,6 +126,11 @@ audio {
   padding: 10px;
   text-align: center;
   cursor: pointer;
+  outline: none; /* Remove default outline */
+}
+
+.show-hide:focus {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* Add focus style */
 }
 
 .comment-wrapper {
@@ -167,4 +164,100 @@ audio {
   background-color: #FF80FF;
   color: #fff;
   border: none;
-  border-
+  border-radius: 3px;
+}
+
+/* Accessibility improvements */
+
+/* Add role attributes for better screen reader support */
+header,
+nav,
+main,
+article,
+aside,
+section,
+footer {
+  role: region;
+}
+
+/* Add ARIA attributes for table navigation */
+table {
+  border: 0;
+}
+
+table caption {
+  padding: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+table tr {
+  cursor: default;
+}
+
+table tr:focus {
+  outline: none;
+  background-color: #f2f2f2;
+}
+
+table tr:focus th,
+table tr:focus td {
+  outline: 2px solid #FF80FF;
+}
+
+table th:focus,
+table td:focus {
+  outline: none;
+}
+
+table th:focus,
+table th:hover,
+table td:focus,
+table td:hover {
+  background-color: #f2f2f2;
+}
+
+table th:focus:not(:focus-within),
+table td:focus:not(:focus-within) {
+  outline: none;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:focus:nth-child(even) {
+  background-color: #e5e5e5;
+}
+
+table tr:focus:nth-child(even) th,
+table tr:focus:nth-child(even) td {
+  outline: 2px solid #FF80FF;
+}
+
+table th:focus:nth-child(even),
+table td:focus:nth-child(even) {
+  outline: none;
+}
+
+table th:focus:nth-child(even),
+table th:hover:nth-child(even),
+table td:focus:nth-child(even),
+table td:hover:nth-child(even) {
+  background-color: #e5e5e5;
+}
+
+table th:focus:nth-child(even):not(:focus-within),
+table td:focus:nth-child(even):not(:focus-within) {
+  outline: none;
+}
