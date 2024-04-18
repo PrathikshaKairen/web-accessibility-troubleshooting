@@ -1,111 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Accessibility assessment</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="header">
-        <h1>Welcome to our wildlife website</h1>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility assessment</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <nav class="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our team</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
+<header>
+  <h1>Welcome to our wildlife website</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Our team</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <form class="search" aria-label="Search">
+      <label for="search">Search query:</label>
+      <input type="search" id="search" name="q" placeholder="Search query">
+      <input type="submit" value="Go!">
+    </form>
+  </nav>
+</header>
 
-      <form class="search" role="search">
-        <label for="searchInput">Search query</label>
-        <input type="search" id="searchInput" name="q" placeholder="Search query" />
-        <button type="submit">Go!</button>
+<main>
+  <article>
+    <h2>The trouble with Bears</h2>
+    <p>By Evan Wild</p>
+    <p>Tall, lumbering, angry, dangerous. The real live bears of this world are proud, independent creatures, self-serving and always on the hunt for food. Nothing like the bears you see on TV, like Baloo from renowned documentary, The Jungle Book.</p>
+    <!-- More article content -->
+  </article>
+
+  <aside>
+    <h2>About the author</h2>
+    <p>Evan Wild is an unemployed plumber from Doncaster, who has been really "in to" wildlife since childhood. He once went to Chester Zoo on holiday, but got ill after eating a doner kebab.</p>
+    <p>He has never seen a bear, but once read a Daily Mail article about them, and thinks they sound cool.</p>
+  </aside>
+
+  <section class="comments">
+    <button class="show-hide" aria-expanded="false">Show comments</button>
+    <div class="comment-wrapper" hidden aria-label="Comments">
+      <h2>Add comment</h2>
+      <form class="comment-form">
+        <div class="flex-pair">
+          <label for="name">Your name:</label>
+          <input type="text" id="name" name="name" aria-label="Your name" placeholder="Enter your name">
+        </div>
+        <div class="flex-pair">
+          <label for="comment">Your comment:</label>
+          <input type="text" id="comment" name="comment" aria-label="Your comment" placeholder="Enter your comment">
+        </div>
+        <div>
+          <input type="submit" value="Submit comment">
+        </div>
       </form>
-    </nav>
+      <h2>Comments</h2>
+      <ul class="comment-container">
+        <li>
+          <p>Bob Fossil</p>
+          <p>Oh I am so glad you taught me all about the big brown angry guys in the woods...</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
 
-    <main>
-      <article>
-        <h1>The trouble with Bears</h1>
-        <p>By Evan Wild</p>
-        <!-- Article content -->
+<footer>
+  <p>© Copyright 2050 by nobody. All rights reversed.</p>
+</footer>
 
-        <h2>Types of bear</h2>
-        <p>Bears come in two varieties — large and medium. You don't get small bears.</p>
-        <!-- Table removed for brevity -->
-
-        <h2>Habitats and Eating habits</h2>
-        <!-- Article content -->
-
-        <img src="media/wild-bear.jpg" alt="A wild bear in its natural habitat" />
-        <img src="media/urban-bear.jpg" alt="An urban bear in an urban environment" />
-
-        <h2>Mating rituals</h2>
-        <!-- Article content -->
-
-        <audio controls>
-          <source src="media/bear.mp3" type="audio/mp3" />
-          <source src="media/bear.ogg" type="audio/ogg" />
-          <p>It looks like your browser doesn't support HTML5 audio players.</p>
-        </audio>
-
-        <aside>
-          <h2>About the author</h2>
-          <!-- Article content -->
-        </aside>
-
-        <section class="comments">
-          <div class="show-hide" id="show-hide-btn">Show comments</div>
-
-          <div class="comment-wrapper">
-            <h2>Add comment</h2>
-            <form class="comment-form">
-              <label for="name">Your name:</label>
-              <input type="text" name="name" id="name" placeholder="Enter your name" />
-
-              <label for="comment">Your comment:</label>
-              <input type="text" name="comment" id="comment" placeholder="Enter your comment" />
-
-              <input type="submit" value="Submit comment" />
-            </form>
-
-            <h2>Comments</h2>
-            <ul class="comment-container">
-              <li>
-                <p>Bob Fossil</p>
-                <p>
-                  Oh I am so glad you taught me all about the big brown angry guys in the woods. With their sniffing little noses and their bad attitudes, they can sure be a menace — I was thinking of putting them all in a truck and driving them outta here. I run a zoo, you know.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </article>
-
-      <div class="secondary">
-        <h2>Related</h2>
-        <ul>
-<li><a href="#">The trouble with Bees</a></li>
-          <li><a href="#">The trouble with Otters</a></li>
-          <li><a href="#">The trouble with Penguins</a></li>
-          <li><a href="#">The trouble with Octopi</a></li>
-          <li><a href="#">The trouble with Lemurs</a></li>
-        </ul>
-      </div>
-    </main>
-
-    <footer>
-      <p>©Copyright 2050 by nobody. All rights reversed.</p>
-    </footer>
-
-    <script src="main.js"></script>
-  </body>
+<script src="main.js"></script>
+</body>
 </html>
